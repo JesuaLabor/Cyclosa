@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-obsidian: #0E121D;
+  --color-vibrant-cyan: #00BFA5;
+  --color-bright-aqua: #1DE9B6;
+  --color-azure: #00B0FF;
+  --color-deep-purple: #7C4DFF;
+  --color-purple: #8A2BE2;
+  --color-off-white: #E5FAFA;
+  --color-surface: #151921;
+  --color-border: #1F2937;
+
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow,
+  .animate-float {
+    animation: none !important;
+  }
+}
+
+:root {
+  background-color: var(--color-cyber-obsidian);
+  color: white;
+  font-family: var(--font-inter);
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-inter);
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cyber-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-vibrant-cyan);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(21, 25, 33, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Gradients */
+.gradient-cyan {
+  background: linear-gradient(135deg, var(--color-vibrant-cyan), var(--color-azure));
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, var(--color-deep-purple), var(--color-purple));
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, var(--color-off-white) 0%, var(--color-bright-aqua) 45%, var(--color-deep-purple) 100%);
+}
+
+/* Home Background Pattern */
+.home-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(29, 233, 182, 0.25) 1.5px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.circuit-pattern {
+  background-color: #0E121D;
+  background-image:
+    linear-gradient(rgba(0, 191, 165, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 191, 165, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0, 191, 165, 0.03) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 191, 165, 0.03) 2px, transparent 2px);
+  background-size: 40px 40px, 40px 40px, 160px 160px, 160px 160px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+.glow-cursor {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 191, 165, 0.15) 0%, transparent 70%);
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
